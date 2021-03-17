@@ -1,0 +1,6 @@
+data/demo_vars.csv
+data/included_vars.csv
+data/industry_codes.csv
+data/occupation_codes.csv
+data/cps_clean.RData
+data/nov19pub.csv

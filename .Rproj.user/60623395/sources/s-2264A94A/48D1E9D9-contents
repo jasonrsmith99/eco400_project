@@ -1,0 +1,41 @@
+---
+output: github_document
+---
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(knitr)
+
+load(here::here("data", "cps_clean.RData"))
+```
+
+
+
+```{r, echo=FALSE}
+#get variables names
+cps_vars <- colnames(cps_supplement)
+```
+
+```{r, echo=FALSE}
+#calculate response rate for each variable. Store in vector
+percent <- vector()
+
+for (i in 1:ncol(cps_supplement)) {
+  output <-  (1 - sum(is.na(cps_supplement[i])) / 117095) * 100
+  percent[[i]] = output
+}
+```
+
+
+```{r, echo = FALSE}
+#create nice table of response rates
+response_rate <- data.frame(cps_vars, percent) %>% 
+  mutate(across(where(is.numeric), ~round(., 2))) %>%
+  rename("Variable" = cps_vars, "Response Rate" = percent) %>% 
+  arrange(percent)
+
+table_2_cols <- cbind(response_rate[1:14, ], response_rate[15:28, ], response_rate[29:42, ], response_rate[43:56, ])
+```
+
+```{r, echo = FALSE}
+kable(table_2_cols)
+```
