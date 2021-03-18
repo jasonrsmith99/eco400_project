@@ -28,14 +28,9 @@ for (i in 1:ncol(cps_supplement)) {
 
 ```{r, echo = FALSE}
 #create nice table of response rates
-response_rate <- data.frame(cps_vars, percent) %>% 
+data.frame(cps_vars, percent) %>% 
   mutate(across(where(is.numeric), ~round(., 2))) %>%
   rename("Variable" = cps_vars, "Response Rate" = percent) %>% 
-  arrange(percent)
-
-table_2_cols <- cbind(response_rate[1:14, ], response_rate[15:28, ], response_rate[29:42, ], response_rate[43:56, ])
-```
-
-```{r, echo = FALSE}
-kable(table_2_cols)
+  arrange(percent) %>% 
+  kable()
 ```

@@ -1,17 +1,66 @@
 
-| Variable | Response Rate | Variable | Response Rate | Variable | Response Rate | Variable | Response Rate |
-|:---------|--------------:|:---------|--------------:|:---------|--------------:|:---------|--------------:|
-| PRUNEDUR |          1.62 | PRDISFLG |         82.09 | HEINTRAV |          96.9 | GCTCO    |           100 |
-| PEERNHRO |          4.70 | PEMARITL |         82.45 | HEINLICO |          96.9 | GTCBSASZ |           100 |
-| PRERNWA  |         10.99 | PEEDUCA  |         82.45 | HEINELHO |          96.9 | PRTAGE   |           100 |
-| PRCOWPG  |         45.14 | HEMOBDAT |         84.18 | HEINOTHR |          96.9 | PESEX    |           100 |
-| PRNLFSCH |         47.63 | PEINHOME |         96.72 | id       |         100.0 | PTDTRACE |           100 |
-| PEINWORK |         48.47 | PEINSCHL |         96.72 | HRHHID   |         100.0 | PULINENO |           100 |
-| PRFTLF   |         50.09 | PEINCAFE |         96.72 | HUFINAL  |         100.0 | PRFAMREL |           100 |
-| PRDTIND1 |         50.45 | PEINTRAV |         96.72 | HETENURE |         100.0 | PEHSPNON |           100 |
-| PRDTOCC1 |         50.45 | PEINLICO |         96.72 | HWHHWGT  |         100.0 | PWFMWGT  |           100 |
-| PEIO1ICD |         50.45 | PEINELHO |         96.72 | HRHHID2  |         100.0 | PWORWGT  |           100 |
-| PEIO1OCD |         50.45 | PEINOTHR |         96.72 | GEREG    |         100.0 | PWSSWGT  |           100 |
-| HEINWORK |         77.68 | HEINHOME |         96.90 | GEDIV    |         100.0 | PRNMCHLD |           100 |
-| HEHOMSU  |         80.71 | HEINSCHL |         96.90 | GCFIP    |         100.0 | OCCURNUM |           100 |
-| PREMPNOT |         82.09 | HEINCAFE |         96.90 | GCTCB    |         100.0 | PWCMPWGT |           100 |
+| Variable | Response Rate |
+|:---------|--------------:|
+| PRUNEDUR |          1.62 |
+| PEERNHRO |          4.70 |
+| PRERNWA  |         10.99 |
+| HEEVRHOM |         16.19 |
+| HEPRINOH |         16.19 |
+| HEPSENSI |         16.19 |
+| PRCOWPG  |         45.14 |
+| PRNLFSCH |         47.63 |
+| PEINWORK |         48.47 |
+| PRFTLF   |         50.09 |
+| PRDTIND1 |         50.45 |
+| PRDTOCC1 |         50.45 |
+| PEIO1ICD |         50.45 |
+| PEIO1OCD |         50.45 |
+| HEINWORK |         77.68 |
+| HEHOMSU  |         80.71 |
+| HEHOMTE1 |         80.71 |
+| HEHOMTE2 |         80.71 |
+| HEHOMTE3 |         80.71 |
+| HEHOMTE4 |         80.71 |
+| PREMPNOT |         82.09 |
+| PRDISFLG |         82.09 |
+| PEMARITL |         82.45 |
+| PEEDUCA  |         82.45 |
+| HEMOBDAT |         84.18 |
+| PEINHOME |         96.72 |
+| PEINSCHL |         96.72 |
+| PEINCAFE |         96.72 |
+| PEINTRAV |         96.72 |
+| PEINLICO |         96.72 |
+| PEINELHO |         96.72 |
+| PEINOTHR |         96.72 |
+| HEINHOME |         96.90 |
+| HEINSCHL |         96.90 |
+| HEINCAFE |         96.90 |
+| HEINTRAV |         96.90 |
+| HEINLICO |         96.90 |
+| HEINELHO |         96.90 |
+| HEINOTHR |         96.90 |
+| id       |        100.00 |
+| HRHHID   |        100.00 |
+| HUFINAL  |        100.00 |
+| HETENURE |        100.00 |
+| HWHHWGT  |        100.00 |
+| HRHHID2  |        100.00 |
+| GEREG    |        100.00 |
+| GEDIV    |        100.00 |
+| GCFIP    |        100.00 |
+| GCTCB    |        100.00 |
+| GCTCO    |        100.00 |
+| GTCBSASZ |        100.00 |
+| PRTAGE   |        100.00 |
+| PESEX    |        100.00 |
+| PTDTRACE |        100.00 |
+| PULINENO |        100.00 |
+| PRFAMREL |        100.00 |
+| PEHSPNON |        100.00 |
+| PWFMWGT  |        100.00 |
+| PWORWGT  |        100.00 |
+| PWSSWGT  |        100.00 |
+| PRNMCHLD |        100.00 |
+| OCCURNUM |        100.00 |
+| PWCMPWGT |        100.00 |
