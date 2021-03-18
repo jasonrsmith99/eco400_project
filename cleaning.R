@@ -27,11 +27,11 @@ survey_complete <- survey_complete %>%
   relocate(id)
 
 #break into general and supplement questions (to clean supplement portion)
-demo_questions <- survey_complete %>% 
+cps_questions <- survey_complete %>% 
   select(id, demo_vars)
 
 supplement_questions <- survey_complete %>% 
-  select(id, HEINHOME:PEINOTHR, HEMOBDAT, HEHOMSU)
+  select(id, HEINHOME:PEINOTHR, HEMOBDAT, HEHOMSU, HEHOMTE1:HEHOMTE4)
 
 #clean supplement questions
 #remove NAS
@@ -64,8 +64,8 @@ for (i in 1:ncol(supplement_questions)) {
 
 #clean demographic information
 #Make Negatives NA
-for (i in 1:ncol(demo_questions)) {
-  for (j in 1:nrow(demo_questions)) {
+for (i in 1:ncol(cps_questions)) {
+  for (j in 1:nrow(cps_questions)) {
     if (demo_questions[j, i] < 0) {
       demo_questions[j, i] = NA
     }
@@ -74,23 +74,23 @@ for (i in 1:ncol(demo_questions)) {
 }
 
 #Make yes/no 0 and 1
-for (i in 1:ncol(demo_questions)) {
-  for (j in 1:nrow(demo_questions)) {
-    if (colnames(demo_questions[i]) != "PRDISFLG" | colnames(demo_questions[i]) != "id") {
+for (i in 1:ncol(cps_questions)) {
+  for (j in 1:nrow(cps_questions)) {
+    if (colnames(cps_questions[i]) != "PRDISFLG" | colnames(cps_questions[i]) != "id") {
       next
     }
-    if (is.na(demo_questions[j, i]) == TRUE) {
+    if (is.na(cps_questions[j, i]) == TRUE) {
       next
     } 
-    if (demo_questions[j,i] == 2) {
-      demo_questions[j, i] = 0
+    if (cps_questions[j,i] == 2) {
+      cps_questions[j, i] = 0
     }
   }
-basicPlotteR::progress(i, ncol(demo_questions))
+basicPlotteR::progress(i, ncol(cps_questions))
 }
 
 #join datasets
-cps_supplement <- demo_questions %>% 
+cps_supplement <- cps_questions %>% 
   inner_join(supplement_questions, by = "id")
 
 
