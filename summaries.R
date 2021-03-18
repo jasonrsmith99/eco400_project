@@ -26,7 +26,7 @@ region_table <- int_region %>%
   rename("Region" = GEDIV) %>%
   mutate(`Has Home Internet` = round(`Has Home Internet`, 2),
          `Has Home Internet` = paste(`Has Home Internet`, "%", sep = "")) %>% 
-  xtable()
+  xtable(caption = "Home Internet by Region")
 
 #make tex output to compile to pdf
 print(region_table, file = "output/region_table.tex")
@@ -44,7 +44,7 @@ tenure_table <- int_tenure %>%
   rename("Household Tenure" = HETENURE) %>%
   mutate(`Has Home Internet` = round(`Has Home Internet`, 2),
          `Has Home Internet` = paste(`Has Home Internet`, "%", sep = "")) %>% 
-  xtable()
+  xtable(caption = "Home Internet by Household Tenure")
 
 #make tex output to compile to PDF
 print(tenure_table, file = "output/tenure_table.tex")
@@ -66,7 +66,7 @@ ever_int_region_table <- ever_int_region %>%
   rename("Region" = GEDIV) %>% 
   mutate(`Ever Had Home Internet` = round(`Ever Had Home Internet`, 2),
          `Ever Had Home Internet` = paste(`Ever Had Home Internet`, "%", sep = "")) %>% 
-  xtable()
+  xtable(caption = "Ever had Home Internet by Region")
 
 print(ever_int_region_table, file = "output/ever_int_region.tex")
 
@@ -83,7 +83,7 @@ ever_int_tenure_table <- ever_int_tenure %>%
   rename("Household Tenure" = HETENURE) %>% 
   mutate(`Ever Had Home Internet` = round(`Ever Had Home Internet`, 2),
          `Ever Had Home Internet` = paste(`Ever Had Home Internet`, "%", sep = "")) %>% 
-  xtable()
+  xtable(caption = "Ever had Home Internet by Region")
 
 print(ever_int_tenure_table, file = "output/ever_int_tenure.tex")
 
@@ -99,7 +99,7 @@ int_race_table <- int_race %>%
   rename("Race" = PTDTRACE) %>% 
   mutate(`Has Home Internet` = round(`Has Home Internet`, 2),
          `Has Home Internet` = paste(`Has Home Internet`, "%", sep = "")) %>% 
-  xtable()
+  xtable(caption = "Home Internet by Race")
 
 print(int_race_table, file = "output/int_race_table.tex")
 
@@ -114,7 +114,7 @@ ever_int_race_table <- ever_int_race %>%
   rename("Race" = PTDTRACE) %>% 
   mutate(`Has Home Internet` = round(`Has Home Internet`, 2),
          `Has Home Internet` = paste(`Has Home Internet`, "%", sep = "")) %>% 
-  xtable()
+  xtable(caption = "Ever had Home Internet by Race")
 
 print(ever_int_race_table, file = "output/ever_int_race_table.tex")
 
@@ -125,8 +125,9 @@ no_int_reason <- household %>%
   filter(HEINHOME == 0) %>% 
   group_by(HEPRINOH) %>% 
   summarise(n = n(), `%` = (n / 8524) * 100) %>% 
-  mutate(`%` = round(`%`, 2)) %>% 
+  mutate(`%` = round(`%`, 2),
+         `%` = paste(`%`, "%", sep = "")) %>% 
   rename("Reason for not Having Home Internet" = HEPRINOH) %>% 
-  xtable()
+  xtable("Reason for no Home Internet")
 
 print(no_int_reason, file = "output/no_int_reason.tex")
