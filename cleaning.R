@@ -31,7 +31,7 @@ cps_questions <- survey_complete %>%
   select(id, demo_vars)
 
 supplement_questions <- survey_complete %>% 
-  select(id, HEINHOME:PEINOTHR, HEMOBDAT, HEHOMSU, HEHOMTE1:HEHOMTE4)
+  select(id, HEINHOME:PEINOTHR, HEMOBDAT, HEHOMSU, HEHOMTE1:HEHOMTE4, HEEVRHOM, HEPRINOH, HEPSENSI)
 
 #clean supplement questions
 #remove NAS
@@ -49,7 +49,7 @@ for (j in 1:nrow(supplement_questions)) {
 #Make yes/no questions 0 and 1
 for (i in 1:ncol(supplement_questions)) {
   for (j in 1:nrow(supplement_questions)) {
-    if (colnames(supplement_questions[i]) == "HEHOMSU" | colnames(supplement_questions[i]) == "id") {
+    if (colnames(supplement_questions[i]) == "HEHOMSU" | colnames(supplement_questions[i]) == "id" | colnames(supplement_questions[i] == "HEPRINOH")) {
       next
     }
     if (is.na(supplement_questions[j, i]) == TRUE) {
@@ -119,7 +119,9 @@ cps_supplement$PRDTOCC1 <- factor(cps_supplement$PRDTOCC1, labels = occupation_c
 cps_supplement$PRNLFSCH <- factor(cps_supplement$PRNLFSCH, labels = c("In school", "Not in school"))
 cps_supplement$PRDISFLG <- factor(cps_supplement$PRDISFLG, labels = c("Disability", "No disability"))
 cps_supplement$HEHOMSU <- factor(cps_supplement$HEHOMSU, labels = c("ISP", "Nonprofit/public agency/cooperative", "Included in housing costs", "Publically available", "Other"))
-
+cps_supplement$HEPRINOH <- factanal(cps_supplement$HEPRINOH, labels = c("Don't need or not interested", "Can't afford it", "Not worth the cost", "Can use it elsewhere", "Not available in area",
+                                                                        "No computing device, or device inadequate or broken", "Online privacy or cybersecurity concern", "Personal safety concern",
+                                                                        "Household moved or is in the process of moving", "Other"))
 
 #save clean data
 save(cps_supplement, file = "data/cps_clean.RData")

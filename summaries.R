@@ -1,3 +1,5 @@
+#Do we somehow have to incorporate weights?
+
 library(tidyverse)
 library(tidyselect)
 library(xtable)
@@ -47,3 +49,10 @@ tenure_table <- int_tenure %>%
 #make tex output to compile to PDF
 print(tenure_table, file = "output/tenure_table.tex")
 
+
+
+#TODO
+#add how many have ever had internet at home to each table
+#home internet by race
+#reason for not having home internet (if they ever had it)
+#some of these could be graphs I guess
