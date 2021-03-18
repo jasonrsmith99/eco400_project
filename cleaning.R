@@ -49,7 +49,7 @@ for (j in 1:nrow(supplement_questions)) {
 #Make yes/no questions 0 and 1
 for (i in 1:ncol(supplement_questions)) {
   for (j in 1:nrow(supplement_questions)) {
-    if (colnames(supplement_questions[i]) == "HEHOMSU" | colnames(supplement_questions[i]) == "id" | colnames(supplement_questions[i] == "HEPRINOH")) {
+    if (colnames(supplement_questions[i]) == "HEHOMSU" | colnames(supplement_questions[i]) == "id" | colnames(supplement_questions[i]) == "HEPRINOH") {
       next
     }
     if (is.na(supplement_questions[j, i]) == TRUE) {
@@ -66,8 +66,8 @@ for (i in 1:ncol(supplement_questions)) {
 #Make Negatives NA
 for (i in 1:ncol(cps_questions)) {
   for (j in 1:nrow(cps_questions)) {
-    if (demo_questions[j, i] < 0) {
-      demo_questions[j, i] = NA
+    if (cps_questions[j, i] < 0) {
+      cps_questions[j, i] = NA
     }
   }
   
@@ -119,7 +119,7 @@ cps_supplement$PRDTOCC1 <- factor(cps_supplement$PRDTOCC1, labels = occupation_c
 cps_supplement$PRNLFSCH <- factor(cps_supplement$PRNLFSCH, labels = c("In school", "Not in school"))
 cps_supplement$PRDISFLG <- factor(cps_supplement$PRDISFLG, labels = c("Disability", "No disability"))
 cps_supplement$HEHOMSU <- factor(cps_supplement$HEHOMSU, labels = c("ISP", "Nonprofit/public agency/cooperative", "Included in housing costs", "Publically available", "Other"))
-cps_supplement$HEPRINOH <- factanal(cps_supplement$HEPRINOH, labels = c("Don't need or not interested", "Can't afford it", "Not worth the cost", "Can use it elsewhere", "Not available in area",
+cps_supplement$HEPRINOH <- factor(cps_supplement$HEPRINOH, labels = c("Don't need or not interested", "Can't afford it", "Not worth the cost", "Can use it elsewhere", "Not available in area",
                                                                         "No computing device, or device inadequate or broken", "Online privacy or cybersecurity concern", "Personal safety concern",
                                                                         "Household moved or is in the process of moving", "Other"))
 
