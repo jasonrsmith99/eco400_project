@@ -111,7 +111,7 @@ cps_supplement$PTDTRACE <- factor(cps_supplement$PTDTRACE, labels = c("White", "
                                                                       "W-A-HP", "W-B-AI-A", "Other 4 and 5 race combination"))
 cps_supplement$PTDTRACE <- fct_other(cps_supplement$PTDTRACE, keep = c("White", "Black", "Asian", "American Indian/Alaskan Native", "Hawaiian/Pacific Islander"))
 cps_supplement$PEHSPNON <- factor(cps_supplement$PEHSPNON, labels = c("Hispanic", "Nonhispanic"))
-cps_supplement$PREMPNOT <- factor(cps_supplement$PREMPNOT, labels = c("Employed", "Unemployed", "Discouraged", "Other"))
+cps_supplement$PREXPLF <- factor(cps_supplement$PREXPLF, labels = c("Employed", "Unemployed"))
 cps_supplement$PRFTLF <- factor(cps_supplement$PRFTLF, labels = c("Full-time", "Part-time"))
 cps_supplement$PRCOWPG <- factor(cps_supplement$PRCOWPG, labels = c("Private", "Government"))
 cps_supplement$PRDTIND1 <- factor(cps_supplement$PRDTIND1, labels = industry_codes)
