@@ -1,5 +1,7 @@
 library(tidyverse)
 library(texreg)
+library(lmtest)
+library(sandwich)
 
 model_vars <- cps_supplement %>% 
   select(PEINHOME, PRTAGE, PTDTRACE, PEHSPNON, GEDIV, PEEDUCA,
@@ -21,14 +23,13 @@ model_vars$PEEDUCA <- fct_relevel(model_vars$PEEDUCA, levels = c("Less than High
 probit <- glm(PEINHOME ~ PRTAGE + PTDTRACE + PEHSPNON + GEDIV + PEEDUCA + PREXPLF + PRDISFLG, family = binomial(link = "probit"),
               data = model_vars)
 
-summary(probit)
+probit_hc <- coeftest(probit, vcov. = vcovHC, type = "HC1")
 
-screenreg(probit, custom.coef.names = c("(Intercept)", "Age", "Black", "American Indian/Alaskan Native", "Asian", "Hawaiian/Pacific Islander",
+screenreg(probit_hc, custom.coef.names = c("(Intercept)", "Age", "Black", "American Indian/Alaskan Native", "Asian", "Hawaiian/Pacific Islander",
                                         "Race Other", "Non-Hispanic", "Middle Atlantic", "East North Central", "West North Central",
                                         "South Atlantic", "East South Central", "West South Central", "Mountain", "Pacific", "Highschool or GED",
                                         "Some college", "Associate's", "Bachelor's", "Master's", "Professional", "Docterate", "Unemployed", "No Disability"),
           custom.model.names = "Probit", digits = 4, stars = c(.01, .05, .1))
-
 
 #TODO
 #post-hoc testing?
