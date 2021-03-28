@@ -1,4 +1,5 @@
 library(tidyverse)
+library(texreg)
 
 model_vars <- cps_supplement %>% 
   select(PEINHOME, PRTAGE, PTDTRACE, PEHSPNON, GEDIV, PEEDUCA,
@@ -14,3 +15,20 @@ model_vars$PEEDUCA <- fct_other(model_vars$PEEDUCA, drop = c("Associate degree (
 model_vars$PEEDUCA <- fct_relevel(model_vars$PEEDUCA, levels = c("Less than High School", "High school or GED", "Some college (no degree)",
                                                                  "Associate's degree", "Bachelor's degree", "Master's degree",
                                                                  "Professional degree", "Doctorate degree"))
+
+#probit model
+
+probit <- glm(PEINHOME ~ PRTAGE + PTDTRACE + PEHSPNON + GEDIV + PEEDUCA + PREXPLF + PRDISFLG, family = binomial(link = "probit"),
+              data = model_vars)
+
+summary(probit)
+
+screenreg(probit, custom.coef.names = c("(Intercept)", "Age", "Black", "American Indian/Alaskan Native", "Asian", "Hawaiian/Pacific Islander",
+                                        "Race Other", "Non-Hispanic", "Middle Atlantic", "East North Central", "West North Central",
+                                        "South Atlantic", "East South Central", "West South Central", "Mountain", "Pacific", "Highschool or GED",
+                                        "Some college", "Associate's", "Bachelor's", "Master's", "Professional", "Docterate", "Unemployed", "No Disability"),
+          custom.model.names = "Probit", digits = 4, stars = c(.01, .05, .1))
+
+#TODO
+#post-hoc testing?
+#seperate models for each region (could do interaction as well but that seems a bit messy)
