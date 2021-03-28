@@ -82,7 +82,7 @@ mod_ne <- coeftest(mod_ne, vcov. = vcovHC, type = "HC1")
 
 mod_mid_alt <- coeftest(mod_mid_alt, vcov. = vcovHC, type = "HC1")
 
-mod_enc <- coeftest(enc, vcov. = vcovHC, type = "HC1")
+mod_enc <- coeftest(mod_enc, vcov. = vcovHC, type = "HC1")
 
 mod_wnc <- coeftest(mod_wnc, vcov. = vcovHC, type = "HC1")
 
@@ -115,6 +115,9 @@ texreg(list(mod_ne, mod_mid_alt, mod_enc,
                                  "West South Central", "Mountain", "Pacific"),
           caption = "Regression Model by Region", caption.above = TRUE,
           digits = 4, stars = c(.01, .05, .1))
+
+
+car::Anova(c(mod_enc, mod_esc, mod_mid_alt, mod_mnt, mod_ne, mod_pac, mod_sa, mod_wnc, mod_wsc))
 
 #TODO
 #post-hoc testing?
