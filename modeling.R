@@ -28,7 +28,10 @@ screenreg(probit, custom.coef.names = c("(Intercept)", "Age", "Black", "American
                                         "South Atlantic", "East South Central", "West South Central", "Mountain", "Pacific", "Highschool or GED",
                                         "Some college", "Associate's", "Bachelor's", "Master's", "Professional", "Docterate", "Unemployed", "No Disability"),
           custom.model.names = "Probit", digits = 4, stars = c(.01, .05, .1))
+<<<<<<< HEAD
 
 #TODO
 #post-hoc testing?
 #seperate models for each region (could do interaction as well but that seems a bit messy)
+=======
+>>>>>>> 2e5d1e709f2b279f0ee994575f7259f27d2b76f8
