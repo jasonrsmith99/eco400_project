@@ -92,7 +92,7 @@ texreg(list(mod_ne, mod_mid_alt, mod_enc,
           custom.model.names = c("New England", "Mid Altlantic", "East North Central", 
                                  "West North Central", "South Atlantic", "East South Central", 
                                  "West South Central", "Mountain", "Pacific"),
-          caption = "Regression Model by Region", caption.above = TRUE,
+          caption = "Probit Marginal Effect by Region", caption.above = TRUE,
           digits = 4, stars = c(.01, .05, .1))
 
 
