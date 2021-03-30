@@ -30,7 +30,9 @@ screenreg(lpm, custom.model.names = "Base Model",
                                 "Non-hispanic", "Middle Atlantic", "East North Central", "West North Central", "South Atlantic",
                                 "East South Central", "West South Central", "Mountain", "Pacific", "Highschool/GED", "Some College",
                                 "Associate's", "Bachelor's", "Master's", "Professional", "Doctorate", "Unemployed", "No disability"),
-          digits = 4, stars = c(.01, .05, .1))
+          digits = 4, stars = c(.01, .05, .1),
+          include.fstatistic = TRUE,
+          custom.note = "%stars. \nF-statistic: 109.1 on 24 and 58429 DF, p-value: < 2.22e-16")
 
 #nice table but latex
 texreg(lpm, custom.model.names = "Base Model",
@@ -39,6 +41,8 @@ texreg(lpm, custom.model.names = "Base Model",
                                 "East South Central", "West South Central", "Mountain", "Pacific", "Highschool/GED", "Some College",
                                 "Associate's", "Bachelor's", "Master's", "Professional", "Doctorate", "Unemployed", "No disability"),
        digits = 4, stars = c(.01, .05, .1),
+       custom.note = "%stars.\\F-statistic: 109.1 on 24 and 58429 DF, p-value: < 2.22e-16",
+       include.fstatistic = TRUE,
        label = NULL,
        caption = NULL,
        file = "output/basereg.tex")
@@ -51,7 +55,7 @@ anova(lpm, lpm_nogeo) #GEDIV is significant
 lpm_norace <- lm(PEINHOME ~ PRTAGE + PEHSPNON + GEDIV + PEEDUCA + PREXPLF + PRDISFLG, data = model_vars, weights = PWSSWGT)
 anova(lpm, lpm_norace) #race is significant
 
-
+anova(lpm)
 #TODO
 #make age 18+?
-#do something about model objectively awful r^2
+#do something about model objectively awful r^2, f-statistic is significant though -_-
