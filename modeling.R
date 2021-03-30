@@ -1,6 +1,7 @@
 library(tidyverse)
 library(texreg)
-library(mfx)
+library(estimatr)
+library(AER)
 
 
 load(here::here("data", "cps_clean.RData"))
@@ -20,85 +21,37 @@ model_vars$PEEDUCA <- fct_relevel(model_vars$PEEDUCA, levels = c("Less than High
                                                                  "Associate's degree", "Bachelor's degree", "Master's degree",
                                                                  "Professional degree", "Doctorate degree"))
 
-#fully interacted model
+#base mod (linear probability)
+lpm <- lm(PEINHOME ~ PRTAGE + PTDTRACE + PEHSPNON + GEDIV + PEEDUCA + PREXPLF + PRDISFLG, data = model_vars, weights = PWSSWGT)
 
-full_mod <- probitmfx(PEINHOME ~ GEDIV*PRTAGE + GEDIV*PTDTRACE + GEDIV*PEHSPNON + GEDIV*PEEDUCA + GEDIV*PREXPLF + GEDIV*PRDISFLG, data = model_vars)
-
-
-#separate data by region
-ne <- model_vars %>% 
-  filter(GEDIV == "New England")
-
-mid_alt <- model_vars %>% 
-  filter(GEDIV == "Middle Atlantic")
-
-enc <- model_vars %>% 
-  filter(GEDIV == "East North Central")
-
-wnc <- model_vars %>% 
-  filter(GEDIV == "West North Central")
-
-sa <- model_vars %>% 
-  filter(GEDIV == "South Atlantic")
-
-esc <- model_vars %>% 
-  filter(GEDIV == "East South Central")
-
-wsc <- model_vars %>% 
-  filter(GEDIV == "West South Central")
-
-mnt <- model_vars %>%
-  filter(GEDIV == "Mountain")
-
-pac <- model_vars %>% 
-  filter(GEDIV == "Pacific")
-
-
-#probit model
-
-mod_ne <- probitmfx(PEINHOME ~ PRTAGE + PTDTRACE + PEHSPNON + PEEDUCA + PREXPLF + PRDISFLG, robust = TRUE, data = ne)
-
-mod_mid_alt <- probitmfx(PEINHOME ~ PRTAGE + PTDTRACE + PEHSPNON + PEEDUCA + PREXPLF + PRDISFLG, robust = TRUE, data = mid_alt)
-
-mod_enc <- probitmfx(PEINHOME ~ PRTAGE + PTDTRACE + PEHSPNON + PEEDUCA + PREXPLF + PRDISFLG, robust = TRUE, data = enc)
-
-mod_wnc <- probitmfx(PEINHOME ~ PRTAGE + PTDTRACE + PEHSPNON + PEEDUCA + PREXPLF + PRDISFLG, robust = TRUE, data = wnc)
-
-mod_sa <- probitmfx(PEINHOME ~ PRTAGE + PTDTRACE + PEHSPNON + PEEDUCA + PREXPLF + PRDISFLG, robust = TRUE, data = sa)
-
-mod_esc <- probitmfx(PEINHOME ~ PRTAGE + PTDTRACE + PEHSPNON + PEEDUCA + PREXPLF + PRDISFLG, robust = TRUE, data = esc)
-
-mod_wsc <- probitmfx(PEINHOME ~ PRTAGE + PTDTRACE + PEHSPNON + PEEDUCA + PREXPLF + PRDISFLG, robust = TRUE, data = wsc)
-
-mod_mnt <- probitmfx(PEINHOME ~ PRTAGE + PTDTRACE + PEHSPNON + PEEDUCA + PREXPLF + PRDISFLG, robust = TRUE, data = mnt)
-
-mod_pac <- probitmfx(PEINHOME ~ PRTAGE + PTDTRACE + PEHSPNON + PEEDUCA + PREXPLF + PRDISFLG, robust = TRUE, data = pac)
-
-
-screenreg(list(mod_ne, mod_mid_alt, mod_enc,
-               mod_wnc, mod_sa, mod_esc, 
-               mod_wsc, mod_mnt, mod_pac), custom.coef.names = c("Age", "Black", "American Indian/Alaskan Native", "Asian", "Hawaiian/Pacific Islander",
-                                        "Race Other", "Non-Hispanic", "Highschool or GED", "Some college", "Associate's", "Bachelor's", "Master's", "Professional", "Docterate", "Unemployed", "No Disability"),
-          custom.model.names = c("New England", "Mid Altlantic", "East North Central", 
-                                 "West North Central", "South Atlantic", "East South Central", 
-                                 "West South Central", "Mountain", "Pacific"),
-          custom.header = list("My Model" = 1:9),
+#nice table
+screenreg(lpm, custom.model.names = "Base Model",
+          custom.coef.names = c("(Intercept)", "Age", "Black", "American Indian/Alaskan Native", "Asian", "Hawaiian/Pacific Islander", "Other",
+                                "Non-hispanic", "Middle Atlantic", "East North Central", "West North Central", "South Atlantic",
+                                "East South Central", "West South Central", "Mountain", "Pacific", "Highschool/GED", "Some College",
+                                "Associate's", "Bachelor's", "Master's", "Professional", "Doctorate", "Unemployed", "No disability"),
           digits = 4, stars = c(.01, .05, .1))
 
-texreg(list(mod_ne, mod_mid_alt, mod_enc,
-               mod_wnc, mod_sa, mod_esc, 
-               mod_wsc, mod_mnt, mod_pac), custom.coef.names = c("Age", "Black", "American Indian/Alaskan Native", "Asian", "Hawaiian/Pacific Islander",
-                                                                 "Race Other", "Non-Hispanic", "Highschool or GED", "Some college", "Associate's", "Bachelor's", "Master's", "Professional", "Docterate", "Unemployed", "No Disability"),
-          custom.model.names = c("New England", "Mid Altlantic", "East North Central", 
-                                 "West North Central", "South Atlantic", "East South Central", 
-                                 "West South Central", "Mountain", "Pacific"),
-          caption = "Probit Marginal Effect by Region", caption.above = TRUE,
-          digits = 4, stars = c(.01, .05, .1))
+#nice table but latex
+texreg(lpm, custom.model.names = "Base Model",
+       custom.coef.names = c("(Intercept)", "Age", "Black", "American Indian/Alaskan Native", "Asian", "Hawaiian/Pacific Islander", "Other",
+                                "Non-hispanic", "Middle Atlantic", "East North Central", "West North Central", "South Atlantic",
+                                "East South Central", "West South Central", "Mountain", "Pacific", "Highschool/GED", "Some College",
+                                "Associate's", "Bachelor's", "Master's", "Professional", "Doctorate", "Unemployed", "No disability"),
+       digits = 4, stars = c(.01, .05, .1),
+       label = NULL,
+       caption = NULL,
+       file = "output/basereg.tex")
 
+#is GEDIV significant overall
+lpm_nogeo <- lm(PEINHOME ~ PRTAGE + PTDTRACE + PEHSPNON + PEEDUCA + PREXPLF + PRDISFLG, data = model_vars, weights = PWSSWGT)
+anova(lpm, lpm_nogeo) #GEDIV is significant
 
-anova(mod_enc, mod_esc, mod_mid_alt, mod_mnt, mod_ne, mod_pac, mod_sa, mod_wnc, mod_wsc)
+#is race significant
+lpm_norace <- lm(PEINHOME ~ PRTAGE + PEHSPNON + GEDIV + PEEDUCA + PREXPLF + PRDISFLG, data = model_vars, weights = PWSSWGT)
+anova(lpm, lpm_norace) #race is significant
+
 
 #TODO
-#post-hoc testing?
-#Figure out how to add weights so glm algorithm converges
-
+#make age 18+?
+#do something about model objectively awful r^2
