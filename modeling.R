@@ -59,3 +59,4 @@ anova(lpm)
 #TODO
 #make age 18+?
 #do something about model objectively awful r^2, f-statistic is significant though -_-
+#add interaction term for GEDIV

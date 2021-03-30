@@ -131,3 +131,20 @@ no_int_reason <- household %>%
   xtable("Reason for no Home Internet")
 
 print(no_int_reason, file = "output/no_int_reason.tex")
+
+
+#respondents by race and region
+#are there more of one race in some regions than others? If yes, probably want interaction term on GEDIV
+
+race_region <- cps_supplement %>% 
+  group_by(PTDTRACE, GEDIV) %>% 
+  summarise(n = n()) %>%
+  mutate(freq = (n /sum(n)) * 100,
+         freq = round(freq, 2),
+         freq = paste(freq, "%", sep = "")) %>%
+  ungroup() %>%
+  select(-n) %>% 
+  pivot_wider(names_from = PTDTRACE, values_from = freq) %>% 
+  xtable("Proportion of Respondents in Each Region by Race")
+
+print(race_region, file = "output/race_region.tex")
