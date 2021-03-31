@@ -7,8 +7,8 @@ library(AER)
 load(here::here("data", "cps_clean.RData"))
 
 model_vars <- cps_supplement %>% 
-  dplyr::select(PEINHOME, PRTAGE, PTDTRACE, PEHSPNON, GEDIV, PEEDUCA,
-         PREXPLF, PRDISFLG, PWSSWGT)
+  dplyr::select(id, PEINHOME, PRTAGE, PTDTRACE, PEHSPNON, GEDIV, PEEDUCA,
+         PREXPLF, PRDISFLG, PWSSWGT, HETENURE)
 
 #releveling education variable
 model_vars$PEEDUCA <- fct_other(model_vars$PEEDUCA, drop = c("Less than 1st grade", "1st - 3rd grade", "5th - 6th grade",
@@ -22,7 +22,7 @@ model_vars$PEEDUCA <- fct_relevel(model_vars$PEEDUCA, levels = c("Less than High
                                                                  "Professional degree", "Doctorate degree"))
 
 #base mod (linear probability)
-lpm <- lm(PEINHOME ~ PRTAGE + PTDTRACE + PEHSPNON + GEDIV + PEEDUCA + PREXPLF + PRDISFLG, data = model_vars, weights = PWSSWGT)
+lpm <- lm(PEINHOME ~ PRTAGE + PTDTRACE + PEHSPNON + GEDIV + PEEDUCA + PREXPLF + PRDISFLG + GEDIV*PTDTRACE + HETENURE, data = model_vars, weights = PWSSWGT)
 
 #nice table
 screenreg(lpm, custom.model.names = "Base Model",
