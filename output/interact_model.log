@@ -1,0 +1,232 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.3.8)  31 MAR 2021 21:58
+entering extended mode
+**./interact_model.tex
+(interact_model.tex
+LaTeX2e <2020-10-01> patch level 4
+L3 programming layer <2021-02-18> xparse <2020-03-03>
+(C:\Users\Jason\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
+(C:\Users\Jason\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
+File: size10.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
+)
+\c@part=\count179
+\c@section=\count180
+\c@subsection=\count181
+\c@subsubsection=\count182
+\c@paragraph=\count183
+\c@subparagraph=\count184
+\c@figure=\count185
+\c@table=\count186
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+)
+(C:\Users\Jason\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(C:\Users\Jason\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks15
+)
+(C:\Users\Jason\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+
+(C:\Users\Jason\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+))
+\Gm@cnth=\count187
+\Gm@cntv=\count188
+\c@Gm@tempcnt=\count189
+\Gm@bindingoffset=\dimen139
+\Gm@wd@mp=\dimen140
+\Gm@odd@mp=\dimen141
+\Gm@even@mp=\dimen142
+\Gm@layoutwidth=\dimen143
+\Gm@layoutheight=\dimen144
+\Gm@layouthoffset=\dimen145
+\Gm@layoutvoffset=\dimen146
+\Gm@dimlist=\toks16
+
+(C:\Users\Jason\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+
+(C:\Users\Jason\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\adjustbox.sty
+Package: adjustbox 2020/08/19 v1.3 Adjusting TeX boxes (trim, clip, ...)
+(C:\Users\Jason\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval.sty
+Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
+
+(C:\Users\Jason\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyval.tex
+(C:\Users\Jason\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvutils.tex
+\XKV@toks=\toks17
+\XKV@tempa@toks=\toks18
+)
+\XKV@depth=\count190
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+(C:\Users\Jason\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\adjcalc.sty
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back
+-ends (calc, etex, pgfmath)
+)
+(C:\Users\Jason\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\trimclip.sty
+Package: trimclip 2020/08/19 v1.2 Trim and clip general TeX material
+
+(C:\Users\Jason\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\Jason\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\Jason\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(C:\Users\Jason\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+
+(C:\Users\Jason\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen147
+\Gin@req@width=\dimen148
+)
+(C:\Users\Jason\AppData\Local\Programs\MiKTeX\tex/latex/collectbox\collectbox.s
+ty
+Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
+\collectedbox=\box47
+)
+\tc@llx=\dimen149
+\tc@lly=\dimen150
+\tc@urx=\dimen151
+\tc@ury=\dimen152
+Package trimclip Info: Using driver 'tc-pdftex.def'.
+
+(C:\Users\Jason\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\tc-pdftex.def
+File: tc-pdftex.def 2019/01/04 v2.2 Clipping driver for pdftex
+))
+\adjbox@Width=\dimen153
+\adjbox@Height=\dimen154
+\adjbox@Depth=\dimen155
+\adjbox@Totalheight=\dimen156
+\adjbox@pwidth=\dimen157
+\adjbox@pheight=\dimen158
+\adjbox@pdepth=\dimen159
+\adjbox@ptotalheight=\dimen160
+
+(C:\Users\Jason\AppData\Local\Programs\MiKTeX\tex/latex/ifoddpage\ifoddpage.sty
+Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
+\c@checkoddpage=\count191
+) (C:\Users\Jason\AppData\Local\Programs\MiKTeX\tex/latex/varwidth\varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box48
+\sift@deathcycles=\count192
+\@vwid@loff=\dimen161
+\@vwid@roff=\dimen162
+))
+(C:\Users\Jason\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
+tex.def
+File: l3backend-pdftex.def 2021-02-18 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count193
+\l__pdf_internal_box=\box49
+) (interact_model.aux)
+\openout1 = `interact_model.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: landscape 
+* h-part:(L,W,R)=(36.135pt, 722.7pt, 36.135pt)
+* v-part:(T,H,B)=(36.135pt, 542.02501pt, 36.135pt)
+* \paperwidth=794.96999pt
+* \paperheight=614.295pt
+* \textwidth=722.7pt
+* \textheight=542.02501pt
+* \oddsidemargin=-36.135pt
+* \evensidemargin=-36.135pt
+* \topmargin=-73.135pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+
+(C:\Users\Jason\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count194
+\scratchdimen=\dimen163
+\scratchbox=\box50
+\nofMPsegments=\count195
+\nofMParguments=\count196
+\everyMPshowfont=\toks19
+\MPscratchCnt=\count197
+\MPscratchDim=\dimen164
+\MPnumerator=\count198
+\makeMPintoPDFobject=\count199
+\everyMPtoPDFconversion=\toks20
+)
+(C:\Users\Jason\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 9.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 9.
+ [1{C:/Users/Jason/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
+(interact_model.aux) ) 
+Here is how much of TeX's memory you used:
+ 2744 strings out of 479334
+ 44194 string characters out of 2857085
+ 393873 words of memory out of 3000000
+ 20203 multiletter control sequences out of 15000+200000
+ 403430 words of font info for 27 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 97i,10n,102p,285b,345s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Users/Jason/AppData/Local/Programs/MiKTeX/fonts/type1
+/public/amsfonts/cm/cmmi10.pfb><C:/Users/Jason/AppData/Local/Programs/MiKTeX/fo
+nts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Jason/AppData/Local/Programs/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Jason/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Jason/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Jason/
+AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/User
+s/Jason/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on interact_model.pdf (1 page, 72803 bytes).
+PDF statistics:
+ 34 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
