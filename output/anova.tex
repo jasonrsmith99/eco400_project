@@ -1,0 +1,21 @@
+\documentclass{article}
+\begin{document}
+	\begin{table}[ht]
+		\centering
+		\begin{tabular}{lcccccc}
+			\hline
+			& Res.Df & RSS & Df & Sum of Sq & F & Pr($>$F) \\ 
+			\hline
+			Base Model & 70968 & 317532274698.38 &  &  &  &  \\ 
+			Full Interaction & 70768 & 315142165763.79 & 200 & 2390108934.59 & 2.68 & $<$ 2.2e-16 *** \\ 
+			Region/Age & 70960 & 317291845856.43 & -192 & -2149680092.64 & 2.51 & $<$ 2.2e-16 *** \\ 
+			Region/Race & 70928 & 316760180940.51 & 32 & 531664915.92 & 3.73 & 5.399e-16 *** \\ 
+			Region/Hispanic & 70960 & 317276082434.06 & -32 & -515901493.55 & 3.62 & 2.033e-11 *** \\ 
+			Region/Education & 70848 & 316552890408.00 & 112 & 723192026.06 & 1.45 & 0.00133 *** \\ 
+			Region/Employment & 70952 & 317377256926.13 & -104 & -824366518.13 & 1.78 & 1.761e-6 *** \\ 
+			Region/Disability & 70960 & 317465321338.79 & -8 & -88064412.67 & 2.47 & 0.0112 *** \\ 
+			\hline
+			\multicolumn{7}{l}{\scriptsize{$^{***}p<0.01$; $^{**}p<0.05$; $^{*}p<0.1$.}}
+		\end{tabular}
+	\end{table}
+\end{document}

@@ -1,5 +1,6 @@
 library(tidyverse)
 library(texreg)
+library(xtable)
 
 nov19pub <- read_csv("data/nov19pub.csv")
 
@@ -36,9 +37,19 @@ texreg(lpm, custom.model.names = "Base Model",
 
 
 #interaction model
-lpm_interact <- lm(PEINHOME ~ PRTAGE*GEDIV + PTDTRACE*GEDIV + PEHSPNON*GEDIV + PEEDUCA*GEDIV + PEMLR*GEDIV + PRDISFLG*GEDIV + GEDIV*PTDTRACE, data = model_vars2, weights = PWSSWGT)
+lpm_interact <- lm(PEINHOME ~ PRTAGE*GEDIV + PTDTRACE*GEDIV + PEHSPNON*GEDIV + PEEDUCA*GEDIV + PEMLR*GEDIV + PRDISFLG*GEDIV, data = model_vars2, weights = PWSSWGT)
+lpm_race <- lm(PEINHOME ~ PRTAGE + PTDTRACE + PEHSPNON + PEEDUCA + PEMLR + PRDISFLG + GEDIV*PTDTRACE, data = model_vars2, weights = PWSSWGT)
+lpm_dis <- lm(PEINHOME ~ PRTAGE + PTDTRACE + PEHSPNON + PEEDUCA + PEMLR + PRDISFLG*GEDIV, data = model_vars2, weights = PWSSWGT)
+lpm_emp <- lm(PEINHOME ~ PRTAGE + PTDTRACE + PEHSPNON + PEEDUCA + GEDIV*PEMLR + PRDISFLG, data = model_vars2, weights = PWSSWGT)
+lpm_edu <- lm(PEINHOME ~ PRTAGE + PTDTRACE + PEHSPNON + GEDIV*PEEDUCA + PEMLR + PRDISFLG, data = model_vars2, weights = PWSSWGT)
+lpm_his <- lm(PEINHOME ~ PRTAGE + PTDTRACE + GEDIV*PEHSPNON + PEEDUCA + PEMLR + PRDISFLG, data = model_vars2, weights = PWSSWGT)
+lpm_age <- lm(PEINHOME ~ GEDIV*PRTAGE + PTDTRACE + PEHSPNON + PEEDUCA + PEMLR + PRDISFLG, data = model_vars2, weights = PWSSWGT)
 
-anova(lpm, lpm_interact)
+print(
+  xtable(
+    anova(lpm, lpm_interact, lpm_age, lpm_race, lpm_his, lpm_edu, lpm_emp, lpm_dis)
+    ),
+  file = "output/anova.tex")
 
 ne <- model_vars2 %>% filter(GEDIV == "New England")
 ma <- model_vars2 %>% filter(GEDIV == "Middle Atlantic")
