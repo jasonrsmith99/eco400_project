@@ -1,0 +1,25 @@
+\documentclass{article}
+\usepackage{caption}
+\usepackage[landscape]{geometry}
+\thispagestyle{empty}
+\begin{document}
+\begin{table}[ht]
+\centering
+\caption*{Table X: Race and Education Pairwise Comparision (Tukey)}
+\begin{tabular}{lccc}
+  \hline
+ Comparision & Estimate & Adjusted P-value & Significance \\ 
+  \hline
+Black Less than High School - White Less than High School & -0.0652 & 0.0002 & *** \\ 
+  Black High school or GED - White High school or GED & -0.0737 & 0.0000 & *** \\ 
+  Black Some college (no degree) - White Some college (no degree) & -0.0477 & 0.0353 & ** \\ 
+  Black Associate's degree - White Associate's degree & -0.0404 & 0.9752 & ns \\ 
+  Black Bachelor's degree - White Bachelor's degree & -0.0518 & 0.0823 & * \\ 
+  Black Master's degree - White Master's degree & -0.0317 & 1.0000 & ns \\ 
+  Black Professional degree - White Professional degree & 0.0220 & 1.0000 & ns \\ 
+  Black Doctorate degree - White Doctorate degree & -0.0855 & 1.0000 & ns \\ 
+   \hline
+   \multicolumn{4}{l}{\scriptsize{$^{***}p<0.01$; $^{**}p<0.05$; $^{*}p<0.1$; ns not signicicant}}
+\end{tabular}
+\end{table}
+\end{document}
