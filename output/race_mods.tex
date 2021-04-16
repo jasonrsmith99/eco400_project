@@ -1,10 +1,13 @@
-
+\documentclass{article}
+\usepackage{caption}
+\thispagestyle{empty}
+\begin{document}
 \begin{table}
-\caption{Table X: Racial Breakdown}
-\begin{center}
+\centering
+\caption*{Table 7: Full Interaction by Race}
 \begin{tabular}{l c c c c c}
 \hline
- & White & Black & Asian & American Indian/Alaskan Native & Hispanic \\
+ & White & Black & Asian & Native People & Hispanic \\
 \hline
 (Intercept)        & $0.6494^{***}$  & $0.5687^{***}$  & $0.5952^{***}$  & $0.4609^{***}$  & $0.6344^{***}$  \\
                    & $(0.0110)$      & $(0.0385)$      & $(0.0492)$      & $(0.1284)$      & $(0.0344)$      \\
@@ -53,6 +56,5 @@ Num. obs.          & $57593$         & $7074$          & $3931$          & $954$
 \hline
 \multicolumn{6}{l}{\scriptsize{$^{***}p<0.01$; $^{**}p<0.05$; $^{*}p<0.1$}}
 \end{tabular}
-\label{table:coefficients}
-\end{center}
 \end{table}
+\end{document}

@@ -1,0 +1,29 @@
+\documentclass{article}
+\usepackage{caption}
+\usepackage[landscape]{geometry}
+\thispagestyle{empty}
+\begin{document}
+\begin{table}[ht]
+\centering
+\caption*{Table 8: Race Interaction ANOVA}
+\begin{tabular}{lcccccr}
+  \hline
+ & Df & Sum Sq & Mean Sq & F value & Pr($>$F) & \\ 
+  \hline
+Age & 1.0000 & 7395161603.6213 & 7395161603.6213 & 1649.3742 & 0.0000 & *** \\ 
+  Race & 5.0000 & 1312158317.3760 & 262431663.4752 & 58.5312 & 0.0000 & *** \\ 
+  Region & 8.0000 & 516349566.3193 & 64543695.7899 & 14.3955 & 0.0000 & *** \\ 
+  Education & 7.0000 & 17610084727.2364 & 2515726389.6052 & 561.0931 & 0.0000 & *** \\ 
+  Employment & 2.0000 & 81280032.9055 & 40640016.4528 & 9.0641 & 0.0001 & *** \\ 
+  Disability & 1.0000 & 1997652963.8909 & 1997652963.8909 & 445.5450 & 0.0000 & *** \\ 
+  Age/Race & 5.0000 & 229742482.9491 & 45948496.5898 & 10.2481 & 0.0000 & *** \\ 
+  Race/Region & 40.0000 & 733274186.8978 & 18331854.6724 & 4.0886 & 0.0000 & *** \\ 
+  Race/Education & 35.0000 & 395663327.9253 & 11304666.5122 & 2.5213 & 0.0000 & *** \\ 
+  Race/Employment & 10.0000 & 36365710.4016 & 3636571.0402 & 0.8111 & 0.6180 & \\ 
+  Race/Disability & 5.0000 & 127509677.7054 & 25501935.5411 & 5.6878 & 0.0000 &*** \\ 
+  Residuals & 70882.0000 & 317807705785.2515 & 4483616.5146 &  &  & \\ 
+   \hline
+   \multicolumn{6}{l}{\scriptsize{$^{***}p<0.01$; $^{**}p<0.05$; $^{*}p<0.1$}}
+\end{tabular}
+\end{table}
+\end{document}

@@ -138,6 +138,13 @@ race_inter <- lm(PEINHOME ~ PRTAGE*PTDTRACE + PTDTRACE*PTDTRACE + GEDIV*PTDTRACE
 #anova
 summary(aov(race_inter))
 
+print(
+  xtable(
+    anova(race_inter),
+    digits = 4
+  ),
+  file = "output/race_anova.tex")
+
 #significant difference with education tukey to find differences
 diff <- TukeyHSD(aov(race_inter), "PTDTRACE:PEEDUCA")
 
